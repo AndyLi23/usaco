@@ -11,6 +11,6 @@ int main() {
     freopen("task.out", "w", stdout);
     //use cin >> and cout <<
 
-    int n;
-    cin >> n;
+    int N;
+    cin >> N;
 }
