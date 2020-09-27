@@ -12,5 +12,5 @@ int main() {
     //use cin >> and cout <<
 
     int n;
-    cin << n;
+    cin >> n;
 }
