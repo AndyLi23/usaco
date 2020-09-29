@@ -1,12 +1,11 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
-#include <queue>
 #include <map>
+#include <queue>
 
 using namespace std;
 
-//ALGORITHM FOR MINIMUM COST SPANNING TREE (ALL NODES ARE CONNECTED)
 
 
 class Edge {
@@ -24,54 +23,49 @@ Edge newEdge(int weight, int dest) {
 
 
 
-//ALGORITHM--------------------------------------------
-
-class myComparator 
-{ 
-public: 
-    int operator() (const Edge& e1, const Edge& e2) 
-    { 
-        return e1.weight > e2.weight; 
-    } 
-}; 
-
-int N;
+//BFS--------------------------------------------
 
 int seen[100000];
-int seen_num = 0;
 
-priority_queue<Edge, vector<Edge>, myComparator> pq;
+void BFS(map<int, vector<Edge> > graph, int start) {
+    queue <int> q;
+    int cur;
 
+    q.push(start);
 
-int kruskals(map<int, vector<Edge> > graph) {
-    pq.push(newEdge(0, N-1));
+    while(!q.empty()) {
+        cur = q.front();
+        q.pop();
 
-    int ans = 0;
-    int cost, cur;
-    Edge temp;
-
-    while (pq.empty() == false && seen_num < N) {
-        temp = pq.top();
-        pq.pop();
-
-        cost = temp.weight;
-        cur = temp.dest;
 
         if(seen[cur] == 0) {
-            seen[cur] = 1;
-            ans += cost;
-            seen_num++;
+            cout << cur << " ";
 
+            seen[cur] = 1;
             for(int i = 0; i < graph[cur].size(); ++i) {
-                pq.push(graph[cur][i]);
+                q.push(graph[cur][i].dest);
             }
         }
-    } 
-    return ans;
+    }
 }
-//--------------------------------------------
 
+int seen2[100000];
 
+void DFS(map<int, vector<Edge> > graph, int cur) {
+    if(seen2[cur] == 0) {
+        seen2[cur] = 1;
+
+        cout << cur << " ";
+
+        for(int i = 0; i < graph[cur].size(); ++i) {
+            DFS(graph, graph[cur][i].dest);
+        }
+    }
+} 
+
+//--------------------------------------------------
+
+int N;
 
 int main() {
     map<int, vector<Edge> > graph;
@@ -100,13 +94,16 @@ int main() {
     graph[4].push_back(newEdge(2, 0));
     graph[4].push_back(newEdge(2, 3));
     graph[4].push_back(newEdge(4, 2));
-    //------------------------------------
+    
+    
+    
+    //testing
 
+    DFS(graph, 0);
 
-    //ACTUAL ALGORITHM-----------------------------------------
+    cout << endl;
 
+    BFS(graph, 0);
 
-    cout << kruskals(graph) << endl;
-
-    //-----------------------------------------
+    
 }

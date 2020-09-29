@@ -6,17 +6,16 @@ Arrays:
 - Binary search
 - Flood fill
 - Prefix sum
+- Sliding window
 
 Graphs:
 - Graph class (weighted and unweighted)
+- Traversal (DFS and BFS)
 - Djikstra's
 - Kruskal's
 
 Trees:
-- Gree class
+- Tree class
 - Tree traversal
-
-TODO:
-- BFS, DFS, Sliding Window
 
 <br>Also a template for C++ problems

@@ -1,16 +1,13 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
-
-//DONT FORGET THIS
 #include <map>
-//-------------
-
 
 using namespace std;
 
 
 //edge class and add function---------
+
 class Edge {
     public:
     int weight, dest;

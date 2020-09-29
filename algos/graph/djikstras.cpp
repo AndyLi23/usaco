@@ -23,6 +23,8 @@ Edge newEdge(int weight, int dest) {
 
 
 //DJIKSTRAS--------------------------------------------
+
+
 int N, min_n, min_ind, u;
 
 int seen[100000];
