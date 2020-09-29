@@ -16,4 +16,7 @@ Trees:
 - Gree class
 - Tree traversal
 
+TODO:
+- BFS, DFS, Sliding Window
+
 <br>Also a template for C++ problems

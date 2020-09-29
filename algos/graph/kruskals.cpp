@@ -2,11 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <map>
-
-//IMPORTANT IMPORT----------
-#include <queue>
-//-------------------------
-
 using namespace std;
 
 //ALGORITHM FOR MINIMUM COST SPANNING TREE (ALL NODES ARE CONNECTED)
@@ -28,6 +23,9 @@ Edge newEdge(int weight, int dest) {
 
 
 //ALGORITHM--------------------------------------------
+
+#include <queue>
+
 class myComparator 
 { 
 public: 

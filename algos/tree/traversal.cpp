@@ -59,6 +59,33 @@ void postorder(Node* root) {
   }
 }
 
+
+//BFS------------------
+
+#include <queue>
+
+void BFS(Node* root) {
+  queue <Node*> q;
+  Node* cur;
+
+  q.push(root);
+
+  while(!q.empty()) {
+    cur = q.front();
+
+    q.pop();
+
+    cout << cur->val << " ";
+
+    if(cur->left != NULL) {
+      q.push(cur->left);
+    }
+    if(cur->right != NULL) {
+      q.push(cur->right);
+    }
+  }
+}
+
 //-------------------------------------
 
 
@@ -69,5 +96,5 @@ int main() {
 
   Node* tree = getBinaryTree(0, N-1);
 
-  inorder(tree);
+  BFS(tree);
 }    
