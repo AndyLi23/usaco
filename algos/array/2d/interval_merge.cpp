@@ -4,18 +4,8 @@
 using namespace std;
 
 
-int main() {
-
-    vector<vector<int> > intervals;
-    for(int i = 0; i < 5; i++) {
-        vector<int> temp;
-        temp.push_back(i);
-        temp.push_back(i+5);
-        intervals.push_back(temp);
-    }
-
-
-    //sliding window--------------
+//sliding window--------------
+vector<vector<int> > mergeIntervals(vector<vector<int> > intervals) {
     sort(intervals.begin(), intervals.end());
 
     vector<vector<int> >u_intervals;
@@ -30,5 +20,20 @@ int main() {
         }
     }
 
-    //-------------------------
+    return u_intervals;
+}
+//-------------------------
+
+int main() {
+
+    vector<vector<int> > intervals;
+    for(int i = 0; i < 5; i++) {
+        vector<int> temp;
+        temp.push_back(i);
+        temp.push_back(i+5);
+        intervals.push_back(temp);
+    }
+
+
+    vector<vector<int> > u_intervals = mergeIntervals(intervals);
 }

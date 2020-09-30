@@ -5,12 +5,11 @@ using namespace std;
 
 int arr[10000][10000];
 
-int main() {
-    int N = 20;
-    int M = 20;
+int N, M;
 
+//prefix sum ------------
 
-    //prefix sum ------------
+void prefixSum() {
     int cur;
 
     for(int i = 0; i < N; ++i) {
@@ -20,6 +19,14 @@ int main() {
             arr[i][j] = cur;
         }
     }
-    //---------------------
+}
+
+//---------------------
+
+int main() {
+    N = 20;
+    M = 20;
+
+    prefixSum();
 
 }    

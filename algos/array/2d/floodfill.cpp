@@ -8,7 +8,7 @@ int M;
 
 int arr[10000][10000];
 
-//DFS-----------
+//flood fill-----------
 int seen[10000][10000];
 
 int DFS(int i, int j) {
@@ -18,14 +18,8 @@ int DFS(int i, int j) {
     }
     return 0;
 }
-//------------
 
-int main() {
-
-    N = 100;
-    M = 100;
-
-    //DFS----------
+void floodfill() {
     for(int i = 0; i < N; ++i) {
         for(int j = 0; j < M; ++j) {
             if(seen[i][j] == 0 && arr[i][j] == 1) {
@@ -33,5 +27,13 @@ int main() {
             }
         }
     }
-    //-----------
+}
+//------------
+
+int main() {
+
+    N = 100;
+    M = 100;
+
+    floodfill();
 }

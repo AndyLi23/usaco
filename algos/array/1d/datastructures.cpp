@@ -6,18 +6,19 @@
 using namespace std;
 
 
-class myComparator 
-{ 
+//min heap comparator---------
+class myComparator { 
 public: 
     int operator() (const int e1, const int e2) 
     { 
         return e1 > e2; 
     } 
 }; 
+//------------------
 
 int main() {
     
-    //min heap (reverse for max heap)
+    //min heap (reverse for max heap)--------------
 
     priority_queue<int, vector<int>, myComparator> pq;
 
@@ -28,7 +29,7 @@ int main() {
     }
     pq.pop();
 
-    //queue
+    //queue----------------
 
     queue<int> q;
 
@@ -39,7 +40,7 @@ int main() {
     }
     q.pop();
 
-    //stack
+    //stack---------------
     stack<int> s;
 
     s.push(3);
@@ -48,4 +49,5 @@ int main() {
         cout << s.top() << endl;
     }
     s.pop();
+    //-----------------------------------------
 }
