@@ -7,6 +7,7 @@ Arrays:
 - Flood fill
 - Prefix sum
 - Sliding window
+- Interval merging
 
 Graphs:
 - Graph class (weighted and unweighted)
