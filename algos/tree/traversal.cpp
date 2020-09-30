@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 
@@ -62,7 +63,6 @@ void postorder(Node* root) {
 
 //BFS------------------
 
-#include <queue>
 
 void BFS(Node* root) {
   queue <Node*> q;
