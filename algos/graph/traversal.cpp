@@ -6,6 +6,7 @@
 
 using namespace std;
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
 
 
 class Edge {
@@ -57,7 +58,7 @@ void DFS(map<int, vector<Edge> > graph, int cur) {
 
         cout << cur << " ";
 
-        for(int i = 0; i < graph[cur].size(); ++i) {
+        FOR(i, graph[cur].size()) {
             DFS(graph, graph[cur][i].dest);
         }
     }
@@ -72,7 +73,7 @@ int main() {
     
     N = 5;
 
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         graph[i] = vector<Edge>();
     }
 

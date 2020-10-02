@@ -6,6 +6,9 @@
 
 using namespace std;
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
+
+
 //ALGORITHM FOR MINIMUM COST SPANNING TREE (ALL NODES ARE CONNECTED)
 
 
@@ -62,7 +65,7 @@ int kruskals(map<int, vector<Edge> > graph) {
             ans += cost;
             seen_num++;
 
-            for(int i = 0; i < graph[cur].size(); ++i) {
+            FOR(i, graph[cur].size()) {
                 pq.push(graph[cur][i]);
             }
         }
@@ -78,7 +81,7 @@ int main() {
     
     N = 5;
 
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         graph[i] = vector<Edge>();
     }
 

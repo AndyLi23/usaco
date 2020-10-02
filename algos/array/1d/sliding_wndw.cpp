@@ -3,6 +3,10 @@
 #include <vector>
 using namespace std;
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
+#define FOR2(i, a, b) for(int (i) = (a); (i) < (b); (i)++)
+
+
 int arr[100000];
 int N;
 
@@ -13,11 +17,11 @@ void slidingWindow() {
 
     int window_l = 5;
 
-    for(int i = 0; i < window_l; ++i) {
+    FOR(i, window_l) {
         sum += arr[i];
     }
 
-    for(int i = window_l; i < N; ++i) {
+    FOR2(i, window_l, N) {
         //do something with sum
 
         sum += arr[i];
@@ -31,7 +35,7 @@ int main() {
     
     N = 100;
     
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         arr[i] = i;
     }
 

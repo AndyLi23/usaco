@@ -5,6 +5,9 @@
 using namespace std;
 
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
+
+
 class Node {
   public:
   int val;
@@ -55,7 +58,7 @@ bool lca(Node* cur, int p, int q) {
 
 
 int main() {
-    for(int i = 0; i < 1000; ++i) {
+    FOR(i, 1000) {
         arr[i] = i;
     }
     Node *tree = getBinaryTree(0, 200);

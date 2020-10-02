@@ -5,6 +5,7 @@
 
 using namespace std;
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
 
 
 class Edge {
@@ -32,7 +33,7 @@ int dist[100000];
 
 int minDist() {
     min_n = INT_MAX;
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         if(dist[i] < min_n && seen[i] == 0) {
             min_n = dist[i];
             min_ind = i;
@@ -44,7 +45,7 @@ int minDist() {
 //IMPLEMENTATION 1---
 
 int getDist(map<int, vector<Edge> > graph, int origin, int target) {
-    for(int i = 0; i < graph[origin].size(); ++i) {
+    FOR(i, graph[origin].size()) {
         if(graph[origin][i].dest == target) {
             return graph[origin][i].weight;
         }
@@ -53,18 +54,18 @@ int getDist(map<int, vector<Edge> > graph, int origin, int target) {
 }
 
 void djikstras(int src, map<int, vector<Edge> > graph) {
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         dist[i] = INT_MAX;
     }
     dist[src] = 0;
 
 
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         u = minDist();
 
         seen[u] = 1;
 
-        for(int v = 0; v < N; ++v) {
+        FOR(v, N) {
             if(getDist(graph, u, v) > 0 && seen[v] == 0 && dist[v] > dist[u]+getDist(graph, u, v)) {
                 dist[v] = dist[u]+getDist(graph, u, v);
             }
@@ -78,18 +79,18 @@ void djikstras(int src, map<int, vector<Edge> > graph) {
 int graph2[100000][100000];
 
 void djikstras2(int src) {
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         dist[i] = INT_MAX;
     }
     dist[src] = 0;
 
 
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         u = minDist();
 
         seen[u] = 1;
 
-        for(int v = 0; v < N; ++v) {
+        FOR(v, N) {
             if(graph2[u][v] > 0 && seen[v] == 0 && dist[v] > dist[u]+graph2[u][v]) {
                 dist[v] = dist[u]+graph2[u][v];
             }
@@ -107,7 +108,7 @@ int main() {
     
     N = 5;
 
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         graph[i] = vector<Edge>();
     }
 
@@ -136,22 +137,22 @@ int main() {
 
     djikstras(0, graph);
 
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         cout << dist[i] << " ";
     }
 
 
     //alternate----------
 
-    for(int i = 0; i < N; ++i) {
-        for(int j = 0; j < graph[i].size(); ++j) {
+    FOR(i, N) {
+        FOR(j, graph[i].size()) {
             graph2[i][graph[i][j].dest] = graph[i][j].weight;
         }
     }
 
     djikstras2(0);
 
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         cout << dist[i] << " ";
     }
 

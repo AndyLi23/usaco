@@ -3,6 +3,9 @@
 #include <vector>
 using namespace std;
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
+
+
 int arr[100000];
 int N;
 
@@ -33,7 +36,7 @@ int main() {
     
     N = 10000;
     
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         arr[i] = i;
     }
 

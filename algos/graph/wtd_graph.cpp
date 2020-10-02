@@ -5,6 +5,8 @@
 
 using namespace std;
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
+
 
 //edge class and add function---------
 
@@ -30,7 +32,7 @@ int main() {
     int N = 4;
 
     //initialize
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         graph[i] = vector<Edge>();
     }
     //------------------------------------

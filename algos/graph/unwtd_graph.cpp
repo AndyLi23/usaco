@@ -5,6 +5,9 @@
 
 using namespace std;
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
+
+
 int main() {
     //graph implemented with a map-------------
     map<int, vector<int> > graph;
@@ -13,7 +16,7 @@ int main() {
     int N = 4;
 
     //initialize
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         graph[i] = vector<int>();
     }
     //------------------------------------

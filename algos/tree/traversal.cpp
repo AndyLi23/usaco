@@ -4,6 +4,7 @@
 #include <queue>
 using namespace std;
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
 
 
 int arr[100];
@@ -90,7 +91,7 @@ void BFS(Node* root) {
 
 
 int main() {
-  for(int i = 0; i < N; ++i) {
+  FOR(i, N) {
     arr[i] = i;
   }
 

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
+
 
 int N;
 int M;
@@ -20,8 +22,8 @@ int DFS(int i, int j) {
 }
 
 void floodfill() {
-    for(int i = 0; i < N; ++i) {
-        for(int j = 0; j < M; ++j) {
+    FOR(i, N) {
+        FOR(j, M) {
             if(seen[i][j] == 0 && arr[i][j] == 1) {
                 cout << DFS(i, j) << "\n";
             }

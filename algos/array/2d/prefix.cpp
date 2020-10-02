@@ -3,7 +3,11 @@
 #include <vector>
 using namespace std;
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
+
+
 int arr[10000][10000];
+
 
 int N, M;
 
@@ -12,9 +16,9 @@ int N, M;
 void prefixSum() {
     int cur;
 
-    for(int i = 0; i < N; ++i) {
+    FOR(i, N) {
         cur = 0;
-        for(int j = 0; j < M; ++j) {
+        FOR(j, N) {
             cur += arr[i][j];
             arr[i][j] = cur;
         }

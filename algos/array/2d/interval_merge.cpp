@@ -3,6 +3,9 @@
 #include <vector>
 using namespace std;
 
+#define FOR(i, n) for(int (i) = 0 ; (i) < (n); (i)++)
+#define FOR2(i, a, b) for(int (i) = (a); (i) < (b); (i)++)
+
 
 //sliding window--------------
 vector<vector<int> > mergeIntervals(vector<vector<int> > intervals) {
@@ -11,7 +14,7 @@ vector<vector<int> > mergeIntervals(vector<vector<int> > intervals) {
     vector<vector<int> >u_intervals;
     u_intervals.push_back(intervals[0]);
     int last = 0;
-    for(int i = 1; i < intervals.size(); i++) {
+    FOR2(i, 1, intervals.size()) {
         if (intervals[i][0] <= u_intervals[last][1]) {
             u_intervals[last][1] = max(u_intervals[last][1], intervals[i][1]);
         } else {
@@ -27,7 +30,7 @@ vector<vector<int> > mergeIntervals(vector<vector<int> > intervals) {
 int main() {
 
     vector<vector<int> > intervals;
-    for(int i = 0; i < 5; i++) {
+    FOR(i, 5) {
         vector<int> temp;
         temp.push_back(i);
         temp.push_back(i+5);
