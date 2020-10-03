@@ -41,5 +41,5 @@ December 2019:
 US Open 2018:
 
 - lemonade
-- multimoo (9/10)
+- multimoo
 - sort

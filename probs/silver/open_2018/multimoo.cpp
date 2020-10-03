@@ -3,6 +3,7 @@
 #include <vector>
 #include <queue>
 #include <map>
+#include <set>
 using namespace std;
 
 #define FOR(i, n) for (int(i) = 0; (i) < (n); ++(i))
@@ -18,7 +19,7 @@ int arr[250][250];
 int seen[250][250];
 int seent_ = 1;
 
-map<int, vector<int> > m;
+map<int, set<int> > m;
 
 int DFS(int i, int j, int target) {
     if(i >= 0 && i < N && j >= 0 && j < N && seen[i][j] == 0) {
@@ -26,7 +27,7 @@ int DFS(int i, int j, int target) {
             seen[i][j] = 1;
             return 1 + DFS(i+1, j, target) + DFS(i-1, j, target) + DFS(i, j+1, target) + DFS(i, j-1, target);
         } else {
-            m[target].push_back(arr[i][j]);
+            m[target].insert(arr[i][j]);
             return 0;
         }
     }
@@ -64,8 +65,8 @@ int main()
     FOR(i, N) {
         FOR(j, N) {
             if(seen[i][j] == 1) {
-                FOR(k, m[arr[i][j]].size()) {
-                    ans2 = max(ans2, DFS2(i, j, arr[i][j], m[arr[i][j]][k], seent_));
+                for (set<int>::iterator itr = m[arr[i][j]].begin(); itr != m[arr[i][j]].end(); ++itr) {
+                    ans2 = max(ans2, DFS2(i, j, arr[i][j], *itr, seent_));
                     seent_++;
                 }
             }
