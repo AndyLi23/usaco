@@ -27,12 +27,6 @@ Trees:
 ## USACO Silver Problems
 <br>
 
-December 2017:
-
-- homework
-- measurement
-- shuffle (4/10)
-
 December 2019:
 
 - milkvisits
@@ -43,3 +37,13 @@ US Open 2018:
 - lemonade
 - multimoo
 - sort
+
+February 2018:
+
+- reststops
+
+December 2017:
+
+- homework
+- measurement
+- shuffle (4/10)
