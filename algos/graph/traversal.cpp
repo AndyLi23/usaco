@@ -43,7 +43,7 @@ void BFS(map<int, vector<Edge> > graph, int start) {
             cout << cur << " ";
 
             seen[cur] = 1;
-            for(int i = 0; i < graph[cur].size(); ++i) {
+            FOR(i, graph[cur].size()) {
                 q.push(graph[cur][i].dest);
             }
         }

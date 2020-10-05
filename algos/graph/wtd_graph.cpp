@@ -31,12 +31,6 @@ int main() {
     //number of nodes
     int N = 4;
 
-    //initialize
-    FOR(i, N) {
-        graph[i] = vector<Edge>();
-    }
-    //------------------------------------
-
 
     //example of implementation
     graph[0].push_back(newEdge(2, 1));
