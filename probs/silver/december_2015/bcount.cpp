@@ -35,12 +35,12 @@ int main() {
         } else {
             ja[i] = 1;
         }
-    }
 
-    FOR2(i, 1, N) {
-        ha[i] = ha[i - 1] + ha[i];
-        ga[i] = ga[i - 1] + ga[i];
-        ja[i] = ja[i - 1] + ja[i];
+        if(i > 0) {
+            ha[i] += ha[i - 1];
+            ga[i] += ga[i - 1];
+            ja[i] += ja[i - 1];
+        }
     }
 
     FOR(i, Q) {

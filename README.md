@@ -60,3 +60,4 @@ December 2015:
 
 - highcard
 - lightson
+- bcount
