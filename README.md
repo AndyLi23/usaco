@@ -55,3 +55,8 @@ December 2017:
 - homework
 - measurement
 - shuffle (4/10)
+
+December 2015:
+
+- highcard
+- lightson
