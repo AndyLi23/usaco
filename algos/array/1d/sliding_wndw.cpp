@@ -9,7 +9,7 @@ using namespace std;
 
 int arr[100000];
 int N;
-
+vector<int> v;
 
 //sliding window--------------
 void slidingWindow() {
@@ -22,25 +22,30 @@ void slidingWindow() {
     }
 
     FOR2(i, window_l, N) {
-        //do something with sum
-
         sum += arr[i];
         sum -= arr[i-window_l];
+
+        //do something with sum
     }
 }
 //-------------------------
 
 
-//sliding window for sorted vector
-void s(int maxlen) {
-    int i, j=0;
+//sliding window for sorted vector --------
+void slidingWindowV(int maxlen) {
+    int i, j=0, cur = 0;
     FOR(i, N) {
-        while (j<N && arr[j]-arr[i]<=maxlen-1) {
+        while (j<N && v[j]-v[i]<=maxlen-1) {
             //i is lower, j is upper, everything in between
+            //number of elements between = j-i+1
+            cur += v[j];
+            //cur is window sum
             j++;
         }
+        cur -= v[i];
     }
 }
+//-----------------------------------------
 
 
 int main() {
@@ -48,8 +53,8 @@ int main() {
     N = 100;
     
     FOR(i, N) {
-        arr[i] = i;
+        v.push_back(i);
     }
 
-    slidingWindow();
+    slidingWindowV(3);
 }
