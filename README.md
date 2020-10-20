@@ -27,6 +27,11 @@ Trees:
 ## USACO Silver Problems
 <br>
 
+February 2019:
+
+- paintbarn
+- revegetate
+
 December 2019:
 
 - milkvisits
