@@ -31,6 +31,18 @@ void slidingWindow() {
 //-------------------------
 
 
+//sliding window for sorted vector
+void s(int maxlen) {
+    int i, j=0;
+    FOR(i, N) {
+        while (j<N && arr[j]-arr[i]<=maxlen-1) {
+            //i is lower, j is upper, everything in between
+            j++;
+        }
+    }
+}
+
+
 int main() {
     
     N = 100;

@@ -31,6 +31,7 @@ February 2019:
 
 - paintbarn
 - revegetate
+- herding
 
 December 2019:
 
