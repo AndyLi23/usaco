@@ -27,16 +27,27 @@ Trees:
 ## USACO Silver Problems
 <br>
 
+US Open 2020:
+
+- cereal
+- socdist
+
+December 2019:
+
+- milkvisits
+- moobuzz
+
 February 2019:
 
 - paintbarn
 - revegetate
 - herding
 
-December 2019:
+December 2018:
 
-- milkvisits
-- moobuzz
+- convention
+- convention2
+- mooyomooyo
 
 US Open 2018:
 
@@ -55,12 +66,17 @@ January 2018:
 - rental
 - mootube (7/10)
 
-
 December 2017:
 
 - homework
 - measurement
 - shuffle (4/10)
+
+US Open 2017:
+
+- cownomics
+- pairup
+- where
 
 December 2015:
 
