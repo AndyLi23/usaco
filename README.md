@@ -78,6 +78,11 @@ US Open 2017:
 - pairup
 - where
 
+February 2017:
+
+- helpcross
+- maxcross
+
 December 2015:
 
 - highcard
