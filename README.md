@@ -31,6 +31,12 @@ US Open 2020:
 
 - cereal
 - socdist
+- moop
+
+January 2020:
+
+- loan (4/11)
+- berries
 
 December 2019:
 
@@ -93,6 +99,7 @@ February 2017:
 
 - helpcross
 - maxcross
+- countcross
 
 January 2017:
 
@@ -111,6 +118,10 @@ US Open 2016
 - closing (7/10)
 - diamond (7/10)
 - reduce
+
+February 2016
+
+- balancing
 
 January 2016
 
