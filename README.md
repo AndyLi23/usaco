@@ -37,6 +37,7 @@ January 2020:
 
 - loan (4/11)
 - berries
+- wormsort (9/10)
 
 December 2019:
 
