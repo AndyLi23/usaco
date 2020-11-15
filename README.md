@@ -145,3 +145,13 @@ December 2014:
 
 - piggyback
 - cowjog
+
+<br>
+
+## USACO Gold Problems
+<br>
+
+December 2016:
+
+- moocast
+
