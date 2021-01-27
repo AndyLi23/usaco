@@ -35,35 +35,20 @@ int main() {
         cin >> a[i] >> b[i];
         a[i]--;
         b[i]--;
-        temp = arr[a[i]];
-        arr[a[i]] = arr[b[i]];
-        arr[b[i]] = temp;
+    }
 
-        m[arr[b[i]]].insert(b[i]);
-        m[arr[a[i]]].insert(a[i]);
+    FOR(j, 20) {
+        FOR(i, K) {
+            temp = arr[a[i]];
+            arr[a[i]] = arr[b[i]];
+            arr[b[i]] = temp;
 
+            m[arr[b[i]]].insert(b[i]);
+            m[arr[a[i]]].insert(a[i]);
+        }
     }
 
     FOR(i, N) {
-        if(arr[i] != i) {
-            set<int> ts;
-            vector<int> t;
-
-            int j = arr[i];
-            t.push_back(j);
-            ts = m[j];
-
-            while(j != i) {
-                j = arr[j];
-                t.push_back(j);
-                merge(m[j].begin(), m[j].end(), ts.begin(), ts.end(), inserter(ts, ts.begin()));
-            }
-
-            FOR(k, t.size()) {
-                m[t[k]] = ts;
-                arr[t[k]] = t[k];
-            }
-        }
         cout << m[i].size() << endl;
     }
 }
