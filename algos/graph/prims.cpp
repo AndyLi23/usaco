@@ -46,7 +46,7 @@ int seen_num = 0;
 priority_queue<Edge, vector<Edge>, myComparator> pq;
 
 
-int kruskals(map<int, vector<Edge> > graph) {
+int prims(map<int, vector<Edge> > graph) {
     pq.push(newEdge(0, N-1));
 
     int ans = 0;
@@ -109,7 +109,7 @@ int main() {
     //ACTUAL ALGORITHM-----------------------------------------
 
 
-    cout << kruskals(graph) << endl;
+    cout << prims(graph) << endl;
 
     //-----------------------------------------
 }
