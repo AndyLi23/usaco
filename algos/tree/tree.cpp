@@ -5,41 +5,21 @@
 using namespace std;
 
 
-//binary tree node--------
-class Node {
-  public:
-  int val;
-  Node *left, *right;
-};
-//------------------
+//----------------------- BINARY INDEX TREE
+#include <ext/pb_ds/assoc_container.hpp> // Common file
+#include <ext/pb_ds/tree_policy.hpp> // Including tree_order_statistics_node_update
 
+using namespace __gnu_pbds;
 
-
-//create binary tree from array---------
-
-//NOTE: J SHOULD BE LEN(ARR)-1
-Node * getBinaryTree(int i, int j) {
-  if(i <= j) {
-    int m = (i+j)/2;
-    Node* root = new Node();
-    root->val = arr[m];
-    root->left = getBinaryTree(i, m-1);
-    root->right = getBinaryTree(m+1, j);
-
-    return root;
-  }
-  return NULL;
-}
-//-------------------------
+template <class T> using Tree = tree<T, null_type, less<T>, 
+	rb_tree_tag, tree_order_statistics_node_update>; 
 
 
 
 int main() {
-  //example usage
-  Node *tree = new Node();
-  tree->val = 5;
-  tree->left = new Node();
-  tree->left->val = 10;
-  
-  cout << tree->left->val << "\n";
+  Tree<int> T;
+  T.insert(0);
+  T.insert(5);
+  //get number of elements less than 3 -> 1
+  cout << T.order_of_key(3);
 }
