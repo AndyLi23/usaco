@@ -45,7 +45,9 @@ int main() {
 
     FOR2R(h, N, 0) {
         FOR(j, m[h].size()) {
-            k[A[m[h][j]] + 1] += T.order_of_key(m[h][j]);
+            if(h < N-1) {
+                k[h + 1] += T.order_of_key(m[h][j]);
+            }
 
             //cout << k[m[h][j]] << endl;
         }
