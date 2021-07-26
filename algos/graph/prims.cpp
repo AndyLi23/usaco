@@ -11,20 +11,13 @@ using namespace std;
 
 //ALGORITHM FOR MINIMUM COST SPANNING TREE (ALL NODES ARE CONNECTED)
 
-
-class Edge {
-    public:
+struct Edge {
     int weight, dest;
+    bool operator<(const Edge &e) {
+        if(dest==e.dest) return weight<e.weight;
+        else return dest<e.dest;
+    }
 };
-
-Edge newEdge(int weight, int dest) {
-    Edge edge = Edge();
-    edge.weight = weight;
-    edge.dest = dest;
-
-    return edge;
-}
-
 
 
 //ALGORITHM--------------------------------------------
@@ -47,7 +40,7 @@ priority_queue<Edge, vector<Edge>, myComparator> pq;
 
 
 int prims(map<int, vector<Edge> > graph) {
-    pq.push(newEdge(0, N-1));
+    pq.push(Edge{0, N-1});
 
     int ans = 0;
     int cost, cur;
@@ -85,24 +78,24 @@ int main() {
         graph[i] = vector<Edge>();
     }
 
-    graph[0].push_back(newEdge(2, 4));
-    graph[0].push_back(newEdge(5, 3));
-    graph[0].push_back(newEdge(6, 1));
+    graph[0].push_back(Edge{2, 4});
+    graph[0].push_back(Edge{5, 3});
+    graph[0].push_back(Edge{6, 1});
 
-    graph[1].push_back(newEdge(6, 0));
-    graph[1].push_back(newEdge(3, 2));
+    graph[1].push_back(Edge{6, 0});
+    graph[1].push_back(Edge{3, 2});
 
-    graph[2].push_back(newEdge(3, 1));
-    graph[2].push_back(newEdge(3, 3));
-    graph[2].push_back(newEdge(4, 4));
+    graph[2].push_back(Edge{3, 1});
+    graph[2].push_back(Edge{3, 3});
+    graph[2].push_back(Edge{4, 4});
 
-    graph[3].push_back(newEdge(3, 2));
-    graph[3].push_back(newEdge(2, 4));
-    graph[3].push_back(newEdge(5, 0));
+    graph[3].push_back(Edge{3, 2});
+    graph[3].push_back(Edge{2, 4});
+    graph[3].push_back(Edge{5, 0});
 
-    graph[4].push_back(newEdge(2, 0));
-    graph[4].push_back(newEdge(2, 3));
-    graph[4].push_back(newEdge(4, 2));
+    graph[4].push_back(Edge{2, 0});
+    graph[4].push_back(Edge{2, 3});
+    graph[4].push_back(Edge{4, 2});
     //------------------------------------
 
 

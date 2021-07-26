@@ -2,7 +2,7 @@
 
 void prims(int source) {
     FOR2(i, 1, N+1) {
-        D[i] = 100000000000; // set to max num
+        D[i] = INT_MAX; // set to max num
     }    
     FOR(iter, N) {
         //find closest unexplored node
@@ -18,7 +18,7 @@ void prims(int source) {
         //update all unvisited nodes - if they have minimum distance to the current mode
         FOR2(j, 1, N+1) {
             if (!visited[j]) {
-                D[j] = min(D[j], (2019201913LL*min(min_i,j)+2019201949LL*max(min_i,j)) % 2019201997LL);
+                D[j] = min(D[j], cost);
             }
         }
     }

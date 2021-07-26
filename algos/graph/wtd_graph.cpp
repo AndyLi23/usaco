@@ -10,18 +10,13 @@ using namespace std;
 
 //edge class and add function---------
 
-class Edge {
-    public:
+struct Edge {
     int weight, dest;
+    bool operator<(const Edge &e) {
+        if(dest==e.dest) return weight<e.weight;
+        else return dest<e.dest;
+    }
 };
-
-Edge newEdge(int weight, int dest) {
-    Edge edge = Edge();
-    edge.weight = weight;
-    edge.dest = dest;
-
-    return edge;
-}
 //----------------
 
 int main() {
@@ -33,6 +28,6 @@ int main() {
 
 
     //example of implementation
-    graph[0].push_back(newEdge(2, 1));
+    graph[0].push_back(Edge{2, 1});
 
 }

@@ -1,16 +1,10 @@
-class Edge {
-    public:
-        int weight;
-        int dest;
+struct Edge {
+    int weight, dest;
+    bool operator<(const Edge &e) {
+        if(dest==e.dest) return weight<e.weight;
+        else return dest<e.dest;
+    }
 };
-
-Edge newEdge(int weight, int dest) {
-    Edge edge = Edge();
-    edge.weight = weight;
-    edge.dest = dest;
-
-    return edge;
-}
 
 struct State{
     int v;
