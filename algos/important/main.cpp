@@ -7,7 +7,7 @@ using namespace std;
 
 int N, MOD;
 
-//structures
+//structures-----
 struct Point {
     int x,y;
     bool operator<(const Point &p) {
@@ -24,7 +24,7 @@ struct Edge {
     }
 };
 
-//exp
+//exp------
 long long exp(int base, int power){
    if(power == 0) return 1;
    if(power == 1) return (base + MOD) % MOD;
@@ -33,6 +33,18 @@ long long exp(int base, int power){
    if(power%2 == 1) ans = (ans*base + MOD) % MOD;
    return (ans + MOD) % MOD;
 }
+
+
+//tree------
+#include <ext/pb_ds/assoc_container.hpp> 
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace __gnu_pbds;
+
+template <class T> using Tree = tree<T, null_type, less<T>, 
+	rb_tree_tag, tree_order_statistics_node_update>; 
+
+
 
 bool check(int i) {return true;}
 
@@ -51,7 +63,6 @@ int main() {
     }
 
 
-
     //set----
 
     set<int> s;
@@ -59,12 +70,10 @@ int main() {
     //find first element greater than or equal to i
     if(i <= *s.rbegin()) {
         auto it = s.lower_bound(i);
-        cout << *it << endl;
     }
     //find first element less than i
     if(i > *s.begin()) {
         auto it1 = prev(s.lower_bound(i));
-        cout << *it1 << endl;
     }
 
     //erase first/last element
@@ -72,6 +81,16 @@ int main() {
     s.erase(prev(s.end()));
     //------
 
+    /*tree------
+    Tree<int> T;
+    T.insert(0);
+    T.insert(3);
+    T.insert(5);
+
+    //get iterator of element at index 2 -> 5
+    cout << *T.find_by_order(2) << endl;
+    //get number of elements less than 4 -> 2
+    cout << T.order_of_key(4) << endl;*/
 
     //initialize a struct
     Edge edge = Edge{5,3};
