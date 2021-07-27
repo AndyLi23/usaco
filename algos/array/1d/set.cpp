@@ -26,19 +26,17 @@ int main() {
     s.insert(2);
     s.insert(4);
 
-
-    FOR(i, 10) {
-        //find first element greater than i
-        multiset<int>::iterator it = s.lower_bound(i);
-
-        //find first element less than i
-        multiset<int>::iterator it1 = s.upper_bound(i);
-
-        if(it != s.end()) {
-            cout << *it << endl;
-
-            //remove from set
-            s.erase(it);
-        }
+    int i = 5;
+    //find first element greater than i
+    if(i < *s.rbegin()) {
+        auto it = s.lower_bound(i);
     }
+    //find first element less than or equal to i
+    if(i > *s.begin()) {
+        auto it1 = s.lower_bound(i);
+    }
+
+    //erase first/last element
+    s.erase(s.begin());
+    s.erase(prev(s.end()));
 }

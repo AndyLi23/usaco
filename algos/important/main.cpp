@@ -51,6 +51,25 @@ int main() {
     }
 
 
+
+    //set----
+
+    set<int> s;
+
+    //find first element greater than i
+    if(i < *s.rbegin()) {
+        auto it = s.lower_bound(i);
+    }
+    //find first element less than or equal to i
+    if(i > *s.begin()) {
+        auto it1 = s.lower_bound(i);
+    }
+    //erase first/last element
+    s.erase(s.begin());
+    s.erase(prev(s.end()));
+    //------
+
+
     //initialize a struct
     Edge edge = Edge{5,3};
 }
