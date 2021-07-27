@@ -27,13 +27,16 @@ int main() {
     s.insert(4);
 
     int i = 5;
-    //find first element greater than i
-    if(i < *s.rbegin()) {
+
+    //find first element greater than or equal to i
+    if(i <= *s.rbegin()) {
         auto it = s.lower_bound(i);
+        cout << *it << endl;
     }
-    //find first element less than or equal to i
+    //find first element less than i
     if(i > *s.begin()) {
-        auto it1 = s.lower_bound(i);
+        auto it1 = prev(s.lower_bound(i));
+        cout << *it1 << endl;
     }
 
     //erase first/last element
