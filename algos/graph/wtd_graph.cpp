@@ -10,18 +10,19 @@ using namespace std;
 
 //edge class and add function---------
 
+
 struct Edge {
     int weight, dest;
     bool operator<(const Edge &e) {
-        if(dest==e.dest) return weight<e.weight;
-        else return dest<e.dest;
+        if(weight==e.weight) return dest<e.dest;
+        else return weight<e.weight;
     }
 };
 //----------------
 
 int main() {
-    //graph implemented with a map-------------
-    map<int, vector<Edge> > graph;
+    //graph implemented with a vector-------------
+    vector<Edge> graph[4];
     
     //number of nodes
     int N = 4;

@@ -1,8 +1,8 @@
 struct Edge {
     int weight, dest;
     bool operator<(const Edge &e) {
-        if(dest==e.dest) return weight<e.weight;
-        else return dest<e.dest;
+        if(weight==e.weight) return dest<e.dest;
+        else return weight<e.weight;
     }
 };
 
@@ -16,9 +16,9 @@ struct CompareState{
    }
 };
 
-void djikstras(int src, unordered_map<int, vector<Edge> > graph) {
+void djikstras(int src, vector<Edge> graph[]) {
     FOR(i, N) {
-        dist[i] = 2000000000;
+        dist[i] = INT_MAX;
     }
     dist[src] = 0;
 

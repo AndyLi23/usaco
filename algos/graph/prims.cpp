@@ -14,32 +14,24 @@ using namespace std;
 struct Edge {
     int weight, dest;
     bool operator<(const Edge &e) {
-        if(dest==e.dest) return weight<e.weight;
-        else return dest<e.dest;
+        if(weight==e.weight) return dest<e.dest;
+        else return weight<e.weight;
     }
 };
 
 
 //ALGORITHM--------------------------------------------
 
-class myComparator 
-{ 
-public: 
-    int operator() (const Edge& e1, const Edge& e2) 
-    { 
-        return e1.weight > e2.weight; 
-    } 
-}; 
-
 int N;
 
 int seen[100000];
 int seen_num = 0;
 
-priority_queue<Edge, vector<Edge>, myComparator> pq;
+class comp { public: bool operator() (Edge e1, Edge e2) { return e2 < e1; } };
 
+priority_queue < Edge, vector<Edge>, comp> pq;
 
-int prims(map<int, vector<Edge> > graph) {
+int prims(vector<Edge> graph[]) {
     pq.push(Edge{0, N-1});
 
     int ans = 0;
@@ -54,6 +46,7 @@ int prims(map<int, vector<Edge> > graph) {
         cur = temp.dest;
 
         if(seen[cur] == 0) {
+            cout << cur << " " << cost << endl;
             seen[cur] = 1;
             ans += cost;
             seen_num++;
@@ -70,7 +63,7 @@ int prims(map<int, vector<Edge> > graph) {
 
 
 int main() {
-    map<int, vector<Edge> > graph;
+    vector<Edge> graph[5];
     
     N = 5;
 

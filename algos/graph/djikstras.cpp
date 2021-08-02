@@ -7,8 +7,8 @@ using namespace std;
 struct Edge {
     int weight, dest;
     bool operator<(const Edge &e) {
-        if(dest==e.dest) return weight<e.weight;
-        else return dest<e.dest;
+        if(weight==e.weight) return dest<e.dest;
+        else return weight<e.weight;
     }
 };
 
@@ -33,7 +33,7 @@ int minDist() {
 
 //IMPLEMENTATION 1---
 
-int getDist(map<int, vector<Edge> > graph, int origin, int target) {
+int getDist(vector<Edge> graph[], int origin, int target) {
     FOR(i, graph[origin].size()) {
         if(graph[origin][i].dest == target) {
             return graph[origin][i].weight;
@@ -42,7 +42,7 @@ int getDist(map<int, vector<Edge> > graph, int origin, int target) {
     return 0;
 }
 
-void djikstras(int src, map<int, vector<Edge> > graph) {
+void djikstras(int src, vector<Edge> graph[]) {
     FOR(i, N) {
         dist[i] = INT_MAX;
     }
@@ -73,7 +73,6 @@ void djikstras2(int src) {
     }
     dist[src] = 0;
 
-
     FOR(i, N) {
         u = minDist();
 
@@ -93,7 +92,7 @@ void djikstras2(int src) {
 
 
 int main() {
-    map<int, vector<Edge> > graph;
+    vector<Edge> graph[5];
     
     N = 5;
 

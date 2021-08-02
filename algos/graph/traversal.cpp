@@ -11,8 +11,8 @@ using namespace std;
 struct Edge {
     int weight, dest;
     bool operator<(const Edge &e) {
-        if(dest==e.dest) return weight<e.weight;
-        else return dest<e.dest;
+        if(weight==e.weight) return dest<e.dest;
+        else return weight<e.weight;
     }
 };
 
@@ -20,7 +20,7 @@ struct Edge {
 
 int seen[100000];
 
-void BFS(map<int, vector<Edge> > graph, int start) {
+void BFS(vector<Edge> graph[], int start) {
     queue <int> q;
     int cur;
 
@@ -44,7 +44,7 @@ void BFS(map<int, vector<Edge> > graph, int start) {
 
 int seen2[100000];
 
-void DFS(map<int, vector<Edge> > graph, int cur) {
+void DFS(vector<Edge> graph[], int cur) {
     if(seen2[cur] == 0) {
         seen2[cur] = 1;
 
@@ -61,13 +61,9 @@ void DFS(map<int, vector<Edge> > graph, int cur) {
 int N;
 
 int main() {
-    map<int, vector<Edge> > graph;
+    vector<Edge> graph[5];
     
     N = 5;
-
-    FOR(i, N) {
-        graph[i] = vector<Edge>();
-    }
 
     graph[0].push_back(Edge{2, 4});
     graph[0].push_back(Edge{5, 3});
