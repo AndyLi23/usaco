@@ -15,77 +15,41 @@ struct Edge {
 //DJIKSTRAS--------------------------------------------
 
 
-int N, min_n, min_ind, u;
+int N, cur;
 
-int seen[100000];
+bool seen[100000];
 int dist[100000];
-
-int minDist() {
-    min_n = INT_MAX;
-    FOR(i, N) {
-        if(dist[i] < min_n && seen[i] == 0) {
-            min_n = dist[i];
-            min_ind = i;
-        }
-    }
-    return min_ind;
-}
 
 //IMPLEMENTATION 1---
 
-int getDist(vector<Edge> graph[], int origin, int target) {
-    FOR(i, graph[origin].size()) {
-        if(graph[origin][i].dest == target) {
-            return graph[origin][i].weight;
-        }
-    }
-    return 0;
-}
+
+class comp { public: bool operator() (Edge e1, Edge e2) { return e2 < e1; } };
+
+priority_queue<pair<int, int> > q;
 
 void djikstras(int src, vector<Edge> graph[]) {
     FOR(i, N) {
         dist[i] = INT_MAX;
     }
     dist[src] = 0;
+    q.push({0, src});
 
+    while(!q.empty()) {
+        cur = q.top().second;
+        q.pop();
 
-    FOR(i, N) {
-        u = minDist();
+        if(seen[cur]) continue;
+        seen[cur] = true;
 
-        seen[u] = 1;
-
-        FOR(v, N) {
-            if(getDist(graph, u, v) > 0 && seen[v] == 0 && dist[v] > dist[u]+getDist(graph, u, v)) {
-                dist[v] = dist[u]+getDist(graph, u, v);
+        for(Edge u : graph[cur]) {
+            if(dist[cur]+u.weight < dist[u.dest]) {
+                dist[u.dest] = dist[cur] + u.weight;
+                q.push({-dist[u.dest], u.dest});
             }
         }
     }
-
 }
 
-//ALTERNATE--------
-
-int graph2[100000][100000];
-
-void djikstras2(int src) {
-    FOR(i, N) {
-        dist[i] = INT_MAX;
-    }
-    dist[src] = 0;
-
-    FOR(i, N) {
-        u = minDist();
-
-        seen[u] = 1;
-
-        FOR(v, N) {
-            if(graph2[u][v] > 0 && seen[v] == 0 && dist[v] > dist[u]+graph2[u][v]) {
-                dist[v] = dist[u]+graph2[u][v];
-            }
-        }
-    }
-
-}
 
 //--------------------------------------------------
 
@@ -128,22 +92,5 @@ int main() {
     FOR(i, N) {
         cout << dist[i] << " ";
     }
-
-
-    //alternate----------
-
-    FOR(i, N) {
-        FOR(j, graph[i].size()) {
-            graph2[i][graph[i][j].dest] = graph[i][j].weight;
-        }
-    }
-
-    djikstras2(0);
-
-    FOR(i, N) {
-        cout << dist[i] << " ";
-    }
-
-    //------------------------------------
     
 }
