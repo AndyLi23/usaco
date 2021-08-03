@@ -14,7 +14,7 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
     //use cin >> and cout <<
-    //run local: g++ -std=c++11 -O2 -Wall task.cpp -o a
+    //run local: g++ -std=c++11 -O2 -Wall task.cpp -o a / DONT USE UNORDERED MAP!!!!!
 
     cin >> N;
 }
