@@ -15,8 +15,9 @@ int A[SIZE];
 // Returns the sum of the first i elements (indices 0 to i-1)
 int prefix_sum(unsigned int i) {
 	int sum = 0;
-	for (; i > 0; i -= LSBIT(i))
-		sum += A[i-1];
+	for (; i > 0; i -= LSBIT(i)) {
+		sum += A[i - 1];
+	}
 	return sum;
 }
 
@@ -74,5 +75,5 @@ int main() {
 
     init();
 
-    cout << get(rank_query(100));
+	cout << prefix_sum(SIZE);
 }
