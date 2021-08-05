@@ -23,8 +23,6 @@ int dist[100000];
 //IMPLEMENTATION 1---
 
 
-class comp { public: bool operator() (Edge e1, Edge e2) { return e2 < e1; } };
-
 priority_queue<pair<int, int> > q;
 
 void djikstras(int src, vector<Edge> graph[]) {
@@ -64,24 +62,24 @@ int main() {
         graph[i] = vector<Edge>();
     }
 
-    graph[0].push_back(Edge{2, 4});
-    graph[0].push_back(Edge{5, 3});
-    graph[0].push_back(Edge{6, 1});
+    graph[0].push_back({2, 4});
+    graph[0].push_back({5, 3});
+    graph[0].push_back({6, 1});
 
-    graph[1].push_back(Edge{6, 0});
-    graph[1].push_back(Edge{3, 2});
+    graph[1].push_back({6, 0});
+    graph[1].push_back({3, 2});
 
-    graph[2].push_back(Edge{3, 1});
-    graph[2].push_back(Edge{3, 3});
-    graph[2].push_back(Edge{4, 4});
+    graph[2].push_back({3, 1});
+    graph[2].push_back({3, 3});
+    graph[2].push_back({4, 4});
 
-    graph[3].push_back(Edge{3, 2});
-    graph[3].push_back(Edge{2, 4});
-    graph[3].push_back(Edge{5, 0});
+    graph[3].push_back({3, 2});
+    graph[3].push_back({2, 4});
+    graph[3].push_back({5, 0});
 
-    graph[4].push_back(Edge{2, 0});
-    graph[4].push_back(Edge{2, 3});
-    graph[4].push_back(Edge{4, 2});
+    graph[4].push_back({2, 0});
+    graph[4].push_back({2, 3});
+    graph[4].push_back({4, 2});
     
     
     
