@@ -42,6 +42,14 @@ void init(int a[]) {
     }
 }
 
+int getind(int a) {
+    return tree[N + a];
+}
+
+void setelement(int k, int x) {
+    add(k, x - getind(k));
+}
+
 int main() {
     init(a);
     add(5, 4);
