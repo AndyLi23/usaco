@@ -44,6 +44,10 @@ using namespace __gnu_pbds;
 template <class T> using Tree = tree<T, null_type, less<T>, 
 	rb_tree_tag, tree_order_statistics_node_update>; 
 
+//rope (log n deletion and indexing)
+#include <ext/rope>
+using namespace __gnu_cxx;
+rope<int> r;
 
 
 bool check(int i) {return true;}
@@ -91,6 +95,15 @@ int main() {
     cout << *T.find_by_order(2) << endl;
     //get number of elements less than 4 -> 2
     cout << T.order_of_key(4) << endl;*/
+
+
+    //rope-------
+    r.push_back(1);
+    r.push_back(2);
+    r.pop_back();
+    int temp = r[0];
+    //erase 1 element starting from index 0
+    r.erase(0, 1);
 
     //initialize a struct
     Edge edge = Edge{5,3};
