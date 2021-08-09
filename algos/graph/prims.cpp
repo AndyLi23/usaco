@@ -46,7 +46,6 @@ int prims(vector<Edge> graph[]) {
         cur = temp.dest;
 
         if(seen[cur] == 0) {
-            cout << cur << " " << cost << endl;
             seen[cur] = 1;
             ans += cost;
             seen_num++;

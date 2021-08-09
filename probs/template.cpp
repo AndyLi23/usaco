@@ -5,6 +5,8 @@ using namespace std;
 #define FOR2(i, a, b) for(int (i) = (a); (i) < (b); ++(i))
 #define FOR2R(i, b, a) for(int (i) = (b); (i) >= (a); --(i))
 #define ll long long
+const int MOD = 1000000007;
+const int MAXN = 2e5;
 
 int N;
 
