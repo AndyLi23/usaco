@@ -7,7 +7,7 @@ using namespace std;
 #define ll long long
 #define pb push_back
 #define MOD 1000000007;
-#define MAXN = 2e5;
+const int MAXN = 2e5;
 
 int N;
 

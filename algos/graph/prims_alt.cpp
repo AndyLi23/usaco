@@ -1,6 +1,8 @@
 //USE FOR WHEN EVERY NODE IS CONNECTED TO EVERY OTHER - COMPLEX GRAPH O(N^2)
 
 void prims(int source) {
+    int ans = 0;
+
     FOR2(i, 1, N+1) {
         D[i] = INT_MAX; // set to max num
     }    
@@ -14,6 +16,7 @@ void prims(int source) {
         }
         //mark as explored
         visited[min_i] = 1;
+        ans += D[min_i];
 
         //update all unvisited nodes - if they have minimum distance to the current mode
         FOR2(j, 1, N+1) {
