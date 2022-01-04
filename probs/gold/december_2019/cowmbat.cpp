@@ -40,7 +40,7 @@ int main() {
         }
     }
 
-    FOR2(i, 0, N+1) {
+    FOR(i, N+1) {
         FOR(j, M) {
             dp[i][j] = INT_MAX;
         }
@@ -50,16 +50,15 @@ int main() {
 
     FOR2(i, 1, N+1) {
         FOR(j, M) {
-            if(dp[i-1][j] != INT_MAX) {
+            if(dp[i-1][j] != INT_MAX) { //INT_MAX means not possible: (if i < K)
                 dp[i][j] = min(dp[i][j], dp[i - 1][j] + cost[i - 1][j]);
             }
-            if(i >= K && dpmin[i-K] != INT_MAX) {
+            if(i >= K && dpmin[i-K] != INT_MAX) { //only possible to replace last K if length i-K is possible or i == K (dpmin[0] = 0): cannot have AABBB for K=3, 
+                                                  //for example, since dpmin[5-3=2] would be impossible
                 dp[i][j] = min(dp[i][j], dpmin[i-K] + psum[i-1][j] - psum[i - K - 1][j]);
             }
 
-            if(dp[i][j] != INT_MAX) {
-                dpmin[i] = min(dpmin[i], dp[i][j]);
-            }
+            dpmin[i] = min(dpmin[i], dp[i][j]);
         }
     }
 
